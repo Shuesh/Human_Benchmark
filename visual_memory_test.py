@@ -20,4 +20,4 @@ def run(driver, stop_score):
     active = []
     for row in grid.find_elements(by="tag name", value="div"):
         for cell in row.find_elements(by="tag name", value="div"):
-            
+            pass

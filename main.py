@@ -13,48 +13,52 @@ import typing_test
 import verbal_memory_test
 import number_memory_test
 import visual_memory_test
+import time
 
 def main():
     driver = webdriver.Chrome(executable_path=r'C:\Program Files\Chromedriver\chromedriver.exe')
 
     # Load the website and start it on the reaction time test
-    driver.get("https://humanbenchmark.com/tests/visual-memory")
+    driver.get("https://humanbenchmark.com/tests/reactiontime")
     
-    # # Reaction Test
-    # reaction_time_test.run(driver)
+    # Reaction Test
+    reaction_time_test.run(driver)
+    # time.sleep(5)
         
-    # # Chimp Test
-    # WebDriverWait(driver, 10).until(
-    #     EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[4]/td[2]/div/a[1]"))
-    # ).click()
-    # chimp_test.run(driver, 40)
+    # Chimp Test
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[4]/td[2]/div/a[1]"))
+    ).click()
+    chimp_test.run(driver, 40)
+    # time.sleep(5)
 
-    # # Aim Trainer
-    # WebDriverWait(driver, 10).until(
-    #     EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[5]/td[2]/div/a[1]"))
-    # ).click()
-    
     # Aim Trainer
-    # driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[5]/td[2]/div/a[1]").click()
-    # aim_trainer_test.run(driver)
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[5]/td[2]/div/a[1]"))
+    ).click()
+    aim_trainer_test.run(driver)
+    # time.sleep(5)
     
     # Typing
-    # driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[6]/td[2]/div/a[1]").click()
-    # typing_test.run(driver)
+    driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[6]/td[2]/div/a[1]").click()
+    typing_test.run(driver)
+    # time.sleep(5)
     
     # Verbal Memory
-    # WebDriverWait(driver, 10).until(
-    #     EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[7]/td[2]/div/a[1]"))
-    # ).click()
-    # verbal_memory_test.run(driver, 1000)
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[7]/td[2]/div/a[1]"))
+    ).click()
+    verbal_memory_test.run(driver, 1000)
+    # time.sleep(5)
     
     # Number Memory
-    # driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[8]/td[2]/div/a[1]").click()
-    # number_memory_test.run(driver, 3)
+    driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[8]/td[2]/div/a[1]").click()
+    number_memory_test.run(driver, 10)
+    # time.sleep(5)
     
     # Visual Memory
     driver.find_element(by='xpath', value="/html/body/div[1]/div/div[4]/div/div/div[2]/div[2]/div/table[1]/tbody/tr[9]/td[2]/div/a[1]").click()
-    visual_memory_test.run(driver)
+    visual_memory_test.run(driver, 50)
 
     while True:
         pass
